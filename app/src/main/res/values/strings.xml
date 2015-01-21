@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Instagram</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="photo">photo</string>
+    <string name="caption_default_text">This is a default caption</string>
+    <string name="default_user_name">User Name</string>
+    <string name="default_relative_date">12h</string>
+
+</resources>
