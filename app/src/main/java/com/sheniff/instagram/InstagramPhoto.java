@@ -1,5 +1,6 @@
 package com.sheniff.instagram;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -10,6 +11,8 @@ public class InstagramPhoto {
     public String caption;
     public String imageUrl;
     public int likesCount;
-    public Date date;
     public String profileImageUrl;
+    public Date date;
+    public int commentsCount;
+    public ArrayList<InstagramComment> comments;
 }

@@ -15,11 +15,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class StreamActivity extends ActionBarActivity {
 
     public static final String CLIENT_ID = "26d05aac18d2490e897e86ebdf8f48de";
+    private static final int MAX_COMMENTS = 2;
     private ArrayList<InstagramPhoto> photos;
     private InstagramPhotosAdapter aPhotos;
 
@@ -54,9 +56,26 @@ public class StreamActivity extends ActionBarActivity {
                         photo.imageUrl          = photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getString("url");
                         photo.profileImageUrl   = photoJSON.getJSONObject("user").getString("profile_picture");
                         photo.likesCount        = photoJSON.getJSONObject("likes").getInt("count");
+                        photo.commentsCount     = photoJSON.getJSONObject("comments").getInt("count");
+
+                        photo.date              = new Date();
+                        photo.date.setTime(photoJSON.getLong("created_time"));
+
                         if (!photoJSON.isNull("caption")) {
                             photo.caption       = photoJSON.getJSONObject("caption").getString("text");
                         }
+
+                        // setting comments
+                        int numComments = photo.commentsCount >= MAX_COMMENTS ? MAX_COMMENTS : photo.commentsCount;
+                        photo.comments = new ArrayList<>();
+
+                        for (int comm = 0; comm < numComments; comm++) {
+                            InstagramComment comment = new InstagramComment();
+                            comment.username = photoJSON.getJSONObject("comments").getJSONArray("data").getJSONObject(comm).getJSONObject("from").getString("full_name");
+                            comment.comment = photoJSON.getJSONObject("comments").getJSONArray("data").getJSONObject(comm).getString("text");
+                            photo.comments.add(comment);
+                        }
+
                         photos.add(photo);
                     }
                     aPhotos.notifyDataSetChanged(); // adapter HAS TO notify the view that the update is done
