@@ -25,4 +25,5 @@ dependencies {
     compile files('libs/android-async-http-1.4.6.jar')
     compile files('libs/picasso-2.4.0.jar')
     compile 'com.makeramen:roundedimageview:1.5.0'
+    compile 'com.github.chrisbanes.actionbarpulltorefresh:library:+'
 }

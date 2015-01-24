@@ -2,14 +2,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFF">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/photoImageView"
+        android:contentDescription="@string/photo"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:src="@drawable/loading"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal"
         android:id="@+id/linearLayout"
-        android:background="#ffffff"
+        android:background="#AAFFFFFF"
         android:padding="5dp">
         <com.makeramen.RoundedImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -35,7 +49,9 @@
             android:layout_toLeftOf="@+id/dateTextView"
             android:layout_toStartOf="@+id/dateTextView"
             android:layout_alignParentBottom="true"
-            android:paddingTop="10dp"
+            android:gravity="center_vertical"
+            android:textColor="#2A5C83"
+            android:textStyle="bold"
             android:paddingLeft="10dp"/>
         <TextView
             android:layout_width="wrap_content"
@@ -45,21 +61,26 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:paddingTop="10dp"/>
+            android:textColor="#ff7c7f82"
+            android:gravity="center_vertical"/>
     </RelativeLayout>
-    <ImageView
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/photoImageView"
+        android:text="likes"
+        android:id="@+id/likesCountTextView"
+        android:layout_below="@+id/photoImageView"
+        android:textColor="#2A5C83"
+        android:textStyle="bold"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:contentDescription="@string/photo"
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"
-        android:src="@drawable/loading"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/linearLayout" />
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -68,6 +89,9 @@
         android:id="@+id/captionTextView"
         android:maxLines="3"
         android:ellipsize="end"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp"
         android:layout_below="@+id/likesCountTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -77,32 +101,68 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="likes"
-        android:id="@+id/likesCountTextView"
-        android:layout_below="@+id/photoImageView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="comments"
+        android:text="view all comments"
         android:id="@+id/commentsCountTextView"
         android:layout_below="@+id/captionTextView"
+        android:textColor="#BBBDC0"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <ListView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/comment1LinearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/commentsListView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:choiceMode="none"
-        android:layout_below="@+id/commentsCountTextView"/>
+        android:layout_below="@+id/commentsCountTextView">
+        <TextView
+            android:id="@+id/comment1UsernameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#2A5C83"
+            android:textStyle="bold"
+            android:width="120dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:text="User name"/>
+        <TextView
+            android:id="@+id/comment1CommentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="15dp"
+            android:text="Comment..."/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/comment1LinearLayout">
+        <TextView
+            android:id="@+id/comment2UsernameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#2A5C83"
+            android:textStyle="bold"
+            android:width="120dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:text="User name"/>
+        <TextView
+            android:id="@+id/comment2CommentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="15dp"
+            android:paddingBottom="20dp"
+            android:text="Comment..."/>
+    </LinearLayout>
 
 </RelativeLayout>

@@ -5,7 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -27,9 +30,12 @@ public class InstagramCommentsAdapter extends ArrayAdapter<InstagramComment> {
 
         TextView nameTextView = (TextView) convertView.findViewById(R.id.commentNameTextView);
         TextView commentTextView = (TextView) convertView.findViewById(R.id.commentTextView);
+        ImageView profileImageView = (ImageView) convertView.findViewById(R.id.imgvCommentsProfile);
 
-        nameTextView.setText(comment.username);
-        commentTextView.setText(comment.comment);
+        nameTextView.setText(comment.getUsername());
+        commentTextView.setText(comment.getComment());
+
+        Picasso.with(getContext()).load(comment.getImageUrl()).placeholder(R.drawable.loading).into(profileImageView);
 
         return convertView;
     }

@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="#FFFFFF">
+    <com.makeramen.RoundedImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/imgvCommentsProfile"
+        android:src="@drawable/loading"
+        android:scaleType="fitCenter"
+        android:layout_height="40dp"
+        android:layout_width="40dp"
+        app:riv_corner_radius="30dip"
+        app:riv_oval="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minHeight="40dp"
         android:text="User name"
+        android:textColor="#2A5C83"
+        android:textStyle="bold"
+        android:width="100dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"
+        android:gravity="center_vertical"
         android:id="@+id/commentNameTextView" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:text="..."
         android:id="@+id/commentTextView" />
 </LinearLayout>
